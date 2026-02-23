@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import useQuizStore from "../store/useQuizStore";
 
 const Homepage = () => {
   const [categories, setCategories] = useState([]);
@@ -6,36 +8,61 @@ const Homepage = () => {
   const [selectedDifficulty, setSelectedDifficulty] = useState("");
   const [questionCount, setQuestionCount] = useState("");
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState("");
 
   useEffect(() => {
-    fetch("https://opentdb.com/api_category.php")
-      .then((response) => response.json())
-      .then((data) => {
+    const fetchCategories = async () => {
+      try {
+        const response = await fetch("https://opentdb.com/api_category.php");
+        const data = await response.json();
         setCategories(data.trivia_categories);
-        setLoading(false);
-      })
-      .catch(() => {
+      } catch (error) {
         setError("Failed to load categories. Please try again later.");
+      } finally {
         setLoading(false);
-      });
+      }
+    };
+    fetchCategories();
   }, []);
 
-  const handleStartQuiz = () => {
+  const navigate = useNavigate();
+  const { setQuestions, resetQuiz } = useQuizStore();
+
+  const handleStartQuiz = async () => {
+    setLoading(true);
+    setError("");
+    resetQuiz();
+
+    if (!selectedCategory || !selectedDifficulty || !questionCount) {
+      setError("Please select all options before starting the quiz.");
+      setLoading(false);
+      return;
+    }
+
     const url = `https://opentdb.com/api.php?amount=${questionCount}&category=${selectedCategory}&difficulty=${selectedDifficulty}&type=multiple`;
-    console.log("Quiz URL:", url);
-    // You can navigate to the quiz page or fetch questions here
+
+    try {
+      const response = await fetch(url);
+      const data = await response.json();
+
+      if (data.results && data.results.length > 0) {
+        setQuestions(data.results);
+        navigate("/quiz");
+      } else {
+        setError(
+          "No quiz data found for the selected options. Please try different settings.",
+        );
+      }
+    } catch (error) {
+      setError("Failed to fetch quiz data.");
+      console.error(error);
+    } finally {
+      setLoading(false);
+    }
   };
 
-  // if (loading) {
-  //   return <p className="text-white">Loading categories...</p>;
-  // }
-  if (error) {
-    return <p className="text-white">{error}</p>;
-  }
-
   return (
-    <div>
+    <div className="flex flex-col justify-center items-center h-screen">
       <h1 className="mb-20 font-bold text-white text-3xl">
         WELCOME TO MOJET QUIZ APP
       </h1>
@@ -112,10 +139,10 @@ const Homepage = () => {
         type="button"
         id="button"
         onClick={handleStartQuiz}
-        disabled={!selectedCategory || !selectedDifficulty || !questionCount}
+        disabled={loading}
         className="mt-10 glow-on-hover"
       >
-        <i>Click to begin😁</i>
+        <i>{loading ? "Loading..." : "Click to begin😁"}</i>
       </button>
     </div>
   );
