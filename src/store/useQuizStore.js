@@ -9,6 +9,7 @@ const useQuizStore = create(
     score: 0,
     selectedAnswer: null,
     userAnswers: [],
+    quizHistory: [],
 
     //Actions to update the state
     setQuestions: (questions) =>
@@ -49,6 +50,11 @@ const useQuizStore = create(
         score: 0,
         userAnswers: [],
       }),
+
+    saveQuizHistory: (quizResult) =>
+      set((state) => ({
+        quizHistory: [...state.quizHistory, quizResult],
+      })),
   })),
   { name: "quiz-storage" },
 );
