@@ -8,6 +8,7 @@ const Homepage = () => {
   const [selectedDifficulty, setSelectedDifficulty] = useState("");
   const [questionCount, setQuestionCount] = useState("");
   const [loading, setLoading] = useState(true);
+  // eslint-disable-next-line no-unused-vars
   const [error, setError] = useState("");
 
   useEffect(() => {
@@ -16,6 +17,7 @@ const Homepage = () => {
         const response = await fetch("https://opentdb.com/api_category.php");
         const data = await response.json();
         setCategories(data.trivia_categories);
+        // eslint-disable-next-line no-unused-vars
       } catch (error) {
         setError("Failed to load categories. Please try again later.");
       } finally {

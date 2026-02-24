@@ -1,4 +1,3 @@
-// import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import useQuizStore from "../store/useQuizStore";
 
@@ -34,6 +33,8 @@ const Quizpage = () => {
       navigate("/results");
     }
   };
+
+  // const totalQuestions = questions.length;
 
   return (
     <div className="flex justify-center items-center bg-gray-100 px-4 min-h-screen">
