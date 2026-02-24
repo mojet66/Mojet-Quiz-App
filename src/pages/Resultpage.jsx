@@ -1,10 +1,12 @@
 import useQuizStore from "../store/useQuizStore";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+import Historypage from "./Historypage";
 
 const Resultpage = () => {
   const navigate = useNavigate();
 
-  const { questions, userAnswers, resetQuiz } = useQuizStore();
+  const { questions, userAnswers, saveQuizHistory } = useQuizStore();
 
   const totalQuestions = questions.length;
 
@@ -29,9 +31,25 @@ const Resultpage = () => {
   const category = totalQuestions > 0 ? questions[0].category : "N/A";
   const difficulty = totalQuestions > 0 ? questions[0].difficulty : "N/A";
 
+  // Save quiz result to history on component mount
+  useEffect(() => {
+    if (questions.length === 0) return;
+
+    const quizResult = {
+      id: Date.now(),
+      category,
+      difficulty,
+      totalQuestions,
+      correctAnswers,
+      incorrectAnswers,
+      percentage,
+      date: new Date().toISOString(),
+    };
+    saveQuizHistory(quizResult);
+  }, []);
+
   // Handle go home
   const handleGoHome = () => {
-    resetQuiz();
     navigate("/");
   };
 
@@ -82,13 +100,18 @@ const Resultpage = () => {
         </div>
 
         {/* Action Buttons */}
+        <div className="flex justify-center mt-8">
+          <button
+            onClick={handleGoHome}
+            className="hover:bg-blue-50 mt-10 py-3 border border-blue-600 rounded-lg w-48 font-semibold text-blue-600 transition hover:cursor-pointer"
+          >
+            Go Home
+          </button>
 
-        <button
-          onClick={handleGoHome}
-          className="hover:bg-blue-50 mt-10 py-3 border border-blue-600 rounded-lg w-48 font-semibold text-blue-600 transition hover:cursor-pointer"
-        >
-          Go Home
-        </button>
+          <button
+          onClick={() => navigate("/history")} 
+          className="hover:bg-blue-50 mt-10 ml-4 py-3 border border-blue-600 rounded-lg w-48 font-semibold text-blue-600 transition hover:cursor-pointer">View History</button>
+        </div>
       </div>
     </div>
   );
