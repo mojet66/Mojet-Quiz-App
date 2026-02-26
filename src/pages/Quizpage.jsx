@@ -34,21 +34,22 @@ const Quizpage = () => {
     }
   };
 
-  // const totalQuestions = questions.length;
-
   return (
     <div className="flex justify-center items-center bg-gray-100 px-4 min-h-screen">
       <div className="bg-white shadow-lg p-8 rounded-xl w-full max-w-2xl">
+        {/* Title */}
+        <div className="flex justify-between mb-6">
+          <p className="text-gray-500 text-sm">
+            Category: {currentQuestion.category}
+          </p>
+          <p className="text-gray-500 text-sm">
+            Difficulty: {currentQuestion.difficulty}
+          </p>
+        </div>
         {/* Question Progress */}
         <p className="mb-4 text-gray-500 text-sm">
           Question {currentQuestionIndex + 1} of {questions.length}
         </p>
-        {/* <div className="flex justify-between items-center mb-6">
-          <p className="text-gray-500 text-sm">Question 1 of 10</p>
-          <div className="bg-gray-200 rounded-full w-32 h-2">
-            <div className="bg-blue-500 rounded-full w-1/4 h-2"></div>
-          </div>
-        </div> */}
 
         {/* Question Text */}
         <h2 className="mb-6 font-semibold text-gray-800 text-2xl">
