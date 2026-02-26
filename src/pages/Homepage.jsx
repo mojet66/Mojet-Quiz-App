@@ -66,16 +66,17 @@ const Homepage = () => {
   return (
     <div className="flex flex-col justify-center items-center h-screen">
       <h1 className="mb-20 font-bold text-white text-3xl">
-        WELCOME TO MOJET QUIZ APP
+        WELCOME TO MOJET QUIZ CHALLENGE
       </h1>
       <p className="mb-10 text-white">
         <em>
-          ...study📚✍️ to show yourself approved unto God, a workman who needs
-          not to be ashamed, rightly dividing the word of truth (2 Timo 2 v 15)
+          ...test your knowledge✍️📚, push your limits💪🚀, and see how you
+          stack up. Choose a category, set your difficulty, and let’s get
+          started
         </em>
       </p>
       <p className="mb-10 text-white">
-        How well do you know the scriptures?🤔🤔 Shall we put it to the test?
+        Think you've got what it takes🤔🤔? Lets put it to a test.
       </p>
 
       <div className="flex justify-center gap-4 mt-4">
