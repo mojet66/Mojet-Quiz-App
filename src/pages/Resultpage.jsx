@@ -54,63 +54,66 @@ const Resultpage = () => {
   };
 
   return (
-    <div className="flex justify-center items-center bg-linear-to-br from-slate-900 to-slate-800 p-6 min-h-screen">
-      <div className="bg-white shadow-2xl p-8 rounded-2xl w-full max-w-xl">
+    <div className="flex justify-center items-center bg-linear-to-br from-slate-900 to-slate-800 p-2 md:p-6 lg:p-6 min-h-screen">
+      <div className="bg-white shadow-2xl lg:p-8 px-3 py-8 rounded-2xl w-full max-w-xl">
         {/* Title */}
-        <h1 className="mb-8 font-bold text-slate-800 text-3xl text-center">
+        <h1 className="mb-8 font-bold text-slate-800 text-lg md:text-2xl lg:text-3xl text-center">
           Quiz Results
         </h1>
 
         {/* Percentage Score Highlight */}
         <div className="mb-8 text-center">
           <p className="mb-2 text-slate-500 text-sm">Your Score</p>
-          <div className="font-extrabold text-blue-600 text-5xl">
+          <div className="font-extrabold text-blue-600 text-3xl md:text-4xl lg:text-5xl">
             {percentage}%
           </div>
         </div>
 
         {/* Summary Section */}
         <div className="space-y-4">
-          <div className="flex justify-between items-center bg-slate-100 p-4 rounded-lg">
+          <div className="flex justify-between items-center bg-slate-100 p-2 sm:p-4 lg:p-4 rounded-lg">
             <span className="font-medium text-slate-600">Category</span>
             <span className="font-semibold text-slate-800">{category}</span>
           </div>
 
-          <div className="flex justify-between items-center bg-slate-100 p-4 rounded-lg">
+          <div className="flex justify-between items-center bg-slate-100 p-2 sm:p-4 lg:p-4 rounded-lg">
             <span className="font-medium text-slate-600">Difficulty</span>
             <span className="font-semibold text-slate-800">{difficulty}</span>
           </div>
 
-          <div className="flex justify-between items-center bg-slate-100 p-4 rounded-lg">
+          <div className="flex justify-between items-center bg-slate-100 p-2 sm:p-4 lg:p-4 rounded-lg">
             <span className="font-medium text-slate-600">Total Questions</span>
             <span className="font-semibold text-slate-800">
               {totalQuestions}
             </span>
           </div>
 
-          <div className="flex justify-between items-center bg-green-100 p-4 rounded-lg">
+          <div className="flex justify-between items-center bg-green-100 p-2 sm:p-4 lg:p-4 rounded-lg">
             <span className="font-medium text-green-700">Correct Answers</span>
             <span className="font-bold text-green-800">{correctAnswers}</span>
           </div>
 
-          <div className="flex justify-between items-center bg-red-100 p-4 rounded-lg">
+          <div className="flex justify-between items-center bg-red-100 p-2 sm:p-4 lg:p-4 rounded-lg">
             <span className="font-medium text-red-700">Incorrect Answers</span>
             <span className="font-bold text-red-800">{incorrectAnswers}</span>
           </div>
         </div>
 
         {/* Action Buttons */}
-        <div className="flex justify-center mt-8">
+        <div className="flex justify-between mt-8">
           <button
             onClick={handleGoHome}
-            className="hover:bg-blue-50 mt-10 py-3 border border-blue-600 rounded-lg w-48 font-semibold text-blue-600 transition hover:cursor-pointer"
+            className="hover:bg-blue-50 py-2 border border-blue-600 rounded-lg w-25 md:w-48 lg:w-48 font-semibold text-blue-600 transition hover:cursor-pointer"
           >
             Go Home
           </button>
 
           <button
-          onClick={() => navigate("/history")} 
-          className="hover:bg-blue-50 mt-10 ml-4 py-3 border border-blue-600 rounded-lg w-48 font-semibold text-blue-600 transition hover:cursor-pointer">View History</button>
+            onClick={() => navigate("/history")}
+            className="hover:bg-blue-50 py-2 border border-blue-600 rounded-lg w-30 md:w-48 lg:w-48 font-semibold text-blue-600 transition hover:cursor-pointer"
+          >
+            View History
+          </button>
         </div>
       </div>
     </div>

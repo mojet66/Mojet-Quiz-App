@@ -65,29 +65,29 @@ const Homepage = () => {
 
   return (
     <div className="flex flex-col justify-center items-center h-screen">
-      <h1 className="mb-20 font-bold text-white text-3xl">
+      <h1 className="mb-10 md:mb-15 lg:mb-20 font-bold text-white text-2xl md:text-4xl lg:text-5xl text-center">
         WELCOME TO MOJET QUIZ CHALLENGE
       </h1>
-      <p className="mb-10 text-white">
+      <p className="mb-10 text-white text-sm md:text-base lg:text-lg text-center">
         <em>
           ...test your knowledge✍️📚, push your limits💪🚀, and see how you
           stack up. Choose a category, set your difficulty, and let’s get
           started
         </em>
       </p>
-      <p className="mb-10 text-white">
+      <p className="mb-10 text-white text-sm md:text-base lg:text-lg text-center">
         Think you've got what it takes🤔🤔? Lets put it to a test.
       </p>
 
-      <div className="flex justify-center gap-4 mt-4">
+      <div className="flex md:flex-row lg:flex-row flex-col justify-center gap-4 mt-4">
         {/* CATEGORY */}
 
         <div>
-          <label className="block font-medium text-gray-700 text-sm">
+          <label className="block font-medium text-gray-700 text-sm md:text-base lg:text-lg">
             Quiz Topic
           </label>
           <select
-            className="p-1 border border-gray-500 rounded-md w-36"
+            className="p-1 border border-gray-500 rounded-md w-36 cursor-pointer"
             value={selectedCategory}
             onChange={(e) => setSelectedCategory(e.target.value)}
           >
@@ -103,11 +103,11 @@ const Homepage = () => {
         {/* DIFFICULTY */}
 
         <div>
-          <label className="block font-medium text-gray-700 text-sm">
+          <label className="block font-medium text-gray-700 text-sm md:text-base lg:text-lg">
             Quiz Difficulty
           </label>
           <select
-            className="p-1 border border-gray-500 rounded-md w-36"
+            className="p-1 border border-gray-500 rounded-md w-36 cursor-pointer"
             value={selectedDifficulty}
             onChange={(e) => setSelectedDifficulty(e.target.value)}
           >
@@ -121,11 +121,11 @@ const Homepage = () => {
         {/* QUESTION COUNT */}
 
         <div>
-          <label className="block font-medium text-gray-700 text-sm">
+          <label className="block font-medium text-gray-700 text-sm md:text-base lg:text-lg">
             Number of Questions
           </label>
           <select
-            className="p-1 border border-gray-500 rounded-md w-36"
+            className="p-1 border border-gray-500 rounded-md w-36 cursor-pointer"
             value={questionCount}
             onChange={(e) => setQuestionCount(e.target.value)}
           >

@@ -36,7 +36,7 @@ const Quizpage = () => {
 
   return (
     <div className="flex justify-center items-center bg-gray-100 px-4 min-h-screen">
-      <div className="bg-white shadow-lg p-8 rounded-xl w-full max-w-2xl">
+      <div className="bg-white shadow-lg md:p-8 lg:p-8 px-3 py-8 rounded-xl w-full max-w-2xl">
         {/* Title */}
         <div className="flex justify-between mb-6">
           <p className="text-gray-500 text-sm">
@@ -52,7 +52,7 @@ const Quizpage = () => {
         </p>
 
         {/* Question Text */}
-        <h2 className="mb-6 font-semibold text-gray-800 text-2xl">
+        <h2 className="mb-6 font-semibold text-gray-800 text-lg md:text-xl lg:text-2xl">
           {currentQuestion.question}
         </h2>
 
@@ -62,7 +62,7 @@ const Quizpage = () => {
             <button
               key={index}
               onClick={() => selectAnswer(answer)}
-              className={`w-full text-left p-4 rounded-lg border ${
+              className={`w-full text-left p-2 md:p-3 lg:p-4 rounded-lg border ${
                 userAnswers[currentQuestionIndex] === answer
                   ? "bg-blue-500 text-white border-blue-500"
                   : "bg-gray-300 hover:bg-gray-100"
@@ -78,7 +78,7 @@ const Quizpage = () => {
           <button
             onClick={prevQuestion}
             disabled={currentQuestionIndex === 0}
-            className="bg-gray-300 disabled:opacity-50 px-4 py-2 rounded"
+            className="bg-gray-300 disabled:opacity-50 px-2 md:px-3 lg:px-4 py-1 md:py-2 lg:py-3 rounded text-sm"
           >
             Previous
           </button>
@@ -86,7 +86,7 @@ const Quizpage = () => {
           <button
             onClick={handleNext}
             disabled={!userAnswers[currentQuestionIndex]}
-            className="bg-blue-600 disabled:opacity-50 px-6 py-2 rounded text-white"
+            className="bg-blue-600 disabled:opacity-50 px-4 md:px-5 lg:px-6 py-2 md:py-3 lg:py-4 rounded text-white text-sm"
           >
             {currentQuestionIndex + 1 === questions.length ? "Finish" : "Next"}
           </button>
