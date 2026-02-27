@@ -19,6 +19,20 @@
   padding: 10px 20px;
 }
 
+@media (max-width: 768px) {
+  .glow-on-hover {
+    font-size: 16px;
+    padding: 8px 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .glow-on-hover {
+    font-size: 12px;
+    padding: 6px 8px;
+  }
+}
+
 .glow-on-hover:before {
   content: "";
   background: linear-gradient(
