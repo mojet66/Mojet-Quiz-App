@@ -10,37 +10,37 @@ The application focuses on clean UI design, efficient state management, and pers
 
 * Quiz setup page with:
 
-- Category selection
+  - Category selection
 
-- Difficulty selection
+  - Difficulty selection
 
-- Custom number of questions
+  - Custom number of questions
 
 * Dynamic question rendering
 
-Real-time progress bar
+* Real-time progress bar
 
-Result page displaying:
+* Result page displaying:
 
-Category
+  - Category
 
-Difficulty
+  - Difficulty
 
-Total questions
+  - Total questions
 
-Correct answers
+  - Correct answers
 
-Incorrect answers
+  - Incorrect answers
 
-Percentage score
+  - Percentage score
 
-Quiz history tracking
+* Quiz history tracking
 
-Persistent state using localStorage
+* Persistent state using localStorage
 
-Fully responsive design (desktop, tablet, mobile)
+* Fully responsive design (desktop, tablet, mobile)
 
-Clean and modern UI styled with Tailwind CSS
+* Clean and modern UI styled with Tailwind CSS
 
 ## Tech Stack Used
 
@@ -93,6 +93,3 @@ This project also improved my understanding of user experience flow, especially 
 ![Vite](https://img.shields.io/badge/Vite-646CFF?logo=vite&logoColor=white)
 ![Open Trivia API](https://img.shields.io/badge/Open%20Trivia%20API-orange)
 
-
-
-![Live Demo](https://img.shields.io/badge/Live-Demo-success)
